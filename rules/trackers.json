@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https?://(mon|mcs|libraweb|log|analytics)[a-z0-9-]*\\.(tiktok|tiktokv|tiktokw|byteoversea|ttwstatic)\\.",
+      "resourceTypes": ["xmlhttprequest", "ping", "script", "image", "other", "websocket"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "analytics.tiktok.com",
+        "analytics-sg.tiktok.com",
+        "ads.tiktok.com",
+        "business-api.tiktok.com",
+        "google-analytics.com",
+        "googletagmanager.com",
+        "doubleclick.net",
+        "googlesyndication.com",
+        "facebook.net",
+        "connect.facebook.net"
+      ],
+      "initiatorDomains": ["tiktok.com"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://www\\.tiktok\\.com/(api/report|api/ba/business|web/report|tiktok/v1/web/report|api/inbox|api/notice|api/user/settings)",
+      "resourceTypes": ["xmlhttprequest", "ping"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": ["tiktok.com", "tiktokv.com", "tiktokw.eu", "tiktokw.us"],
+      "resourceTypes": ["ping"]
+    }
+  }
+]

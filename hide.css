@@ -1,0 +1,33 @@
+tiktok-cookie-banner,
+[class*="DivCookieBanner"] {
+  display: none !important;
+}
+
+#login-modal,
+#loginModalContentContainer,
+[data-e2e="login-modal"],
+div[class*="DivModalContainer"]:has(#login-modal, #loginModalContentContainer, [data-e2e="login-modal"]),
+div[class*="DivModalContainer"]:has(#login-modal) > div[class*="DivModalMask"] {
+  display: none !important;
+}
+
+[data-e2e="guest-mode-login-guide"],
+[class*="DivLoginGuideContainer"],
+[class*="DivBottomLoginContainer"] {
+  display: none !important;
+}
+
+.TUXModal-overlay:has(.captcha-verify-container),
+.captcha-verify-container,
+#captcha_container,
+.captcha_verify_container {
+  display: none !important;
+}
+
+body:has(#login-modal, .captcha-verify-container, #captcha_container) #app {
+  pointer-events: auto !important;
+}
+
+body:has(#login-modal, .captcha-verify-container, #captcha_container) {
+  overflow: auto !important;
+}

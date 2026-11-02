@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok Incognito",
+  "version": "1.1.0",
+  "description": "Watch TikTok links without logging in: no cookie banner, no login popup, no tracking, nothing left behind.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "TikTok Incognito",
+    "default_popup": "options.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": ["declarativeNetRequest", "browsingData", "cookies", "tabs", "storage"],
+  "host_permissions": [
+    "*://*.tiktok.com/*",
+    "*://*.tiktokv.com/*",
+    "*://*.tiktokw.eu/*",
+    "*://*.tiktokw.us/*",
+    "*://*.tiktokcdn.com/*",
+    "*://*.tiktokcdn-eu.com/*",
+    "*://*.tiktokcdn-us.com/*",
+    "*://*.ttwstatic.com/*",
+    "*://*.byteoversea.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "rules/trackers.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.tiktok.com/*"],
+      "css": ["hide.css"],
+      "js": ["unlock.js", "consent.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

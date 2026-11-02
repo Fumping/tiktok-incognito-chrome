@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TikTok Incognito</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --fg: #161823;
+      --muted: #6b6e79;
+      --line: #e3e3e6;
+      --accent: #fe2c55;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --fg: #f1f1f2;
+        --muted: #9a9ba3;
+        --line: #2c2c30;
+      }
+    }
+    body {
+      margin: 0;
+      padding: 16px;
+      width: 320px;
+      background: var(--bg);
+      color: var(--fg);
+      font: 14px/1.4 system-ui, -apple-system, sans-serif;
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    label {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      cursor: pointer;
+    }
+    input {
+      margin-top: 3px;
+      accent-color: var(--accent);
+    }
+    small {
+      display: block;
+      color: var(--muted);
+    }
+    #saved {
+      height: 16px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cookie banner</h1>
+  <p>The banner is always hidden. Choose what happens behind it.</p>
+  <label>
+    <input type="radio" name="consent" value="hide">
+    <span>Only hide it<small>No answer is given. Only essential cookies are kept.</small></span>
+  </label>
+  <label>
+    <input type="radio" name="consent" value="decline">
+    <span>Decline optional cookies<small>Answers "decline" for you. Only essential cookies are kept.</small></span>
+  </label>
+  <label>
+    <input type="radio" name="consent" value="accept">
+    <span>Accept all cookies<small>Answers "allow all" for you. All TikTok cookies are kept until you close the tab. Trackers stay blocked.</small></span>
+  </label>
+  <div id="saved"></div>
+  <script src="options.js"></script>
+</body>
+</html>
